@@ -1,23 +1,18 @@
 package com.example.myapp.contriller;
 
+import com.example.myapp.payload.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.myapp.exception.ResourceNotFoundException;
-import com.example.myapp.payload.UserIdentityAvailability;
-import com.example.myapp.payload.UserProfile;
-import com.example.myapp.payload.UserSummary;
 import com.example.myapp.repository.UserRepository;
 import com.example.myapp.security.CurrentUser;
 import com.example.myapp.security.UserPrincipal;
 import com.example.myapp.model.User;
+
 
 @RestController
 @RequestMapping("/api")
@@ -25,6 +20,7 @@ public class UserController {
 
 	@Autowired
 	private UserRepository userRepository;
+
 
 //	@Autowired
 //	private PollRepository pollRepository;
@@ -67,14 +63,8 @@ public class UserController {
 		return userProfile;
 	}
 
-//	@GetMapping("/users/{username}/polls")
-//	public PagedResponse<PollResponse> getPollsCreatedBy(@PathVariable(value = "username") String username,
-//			@CurrentUser UserPrincipal currentUser,
-//			@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
-//			@RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
-//		return pollService.getPollsCreatedBy(username, currentUser, page, size);
-//	}
-//
+
+
 //	@GetMapping("/users/{username}/votes")
 //	public PagedResponse<PollResponse> getPollsVotedBy(@PathVariable(value = "username") String username,
 //			@CurrentUser UserPrincipal currentUser,
